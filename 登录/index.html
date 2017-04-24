@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>登录</title>
+	<script type="text/javascript" src="./jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="./layer/layer.js"></script>
+	<style type="text/css">
+		* {
+			padding:0px;
+			margin: 0px;
+		}
+		#header {
+			width: 100%;
+			height: 40px;
+			background: #000;
+		}
+		a {
+			text-decoration: none;
+		}
+		#header-con {
+			width: 1200px;
+			height: 40px;
+			margin: 0px;
+		}
+		#header-con div {
+			float: right;
+			line-height: 40px;
+			margin-left: 10px;
+		}
+		#header-con div a {
+			color: #fff;
+		}
+		#loginbox {
+			display: none;
+		}
+		.login-item input {
+			width: 350px;
+			height: 40px;
+
+		}
+		.login-item a {
+			display: block;
+			width: 350px;
+			height: 50px;
+			background-color: #b03939;
+			text-align: center;
+			line-height: 50px;
+			font-size: 30px;
+			color: #fff;
+
+		}
+		.login-item {
+			margin-top: 15px;
+			margin-left: 20px;
+		}
+		#header-con .dbg {
+			float: left;
+		}
+		#dimgbox {
+			width: 100%;
+			height: 140px;
+			background: #fff;
+			position: absolute;
+			top: 0px;
+			display: none;
+		}
+		#dimgtitle {
+			height: 40px;
+			width: 100%;
+			border-bottom:solid 1px #ccc; 
+		}
+		#imgtitle-con {
+			width: 900px;
+			height: 40px;
+			margin: 0px auto;
+			line-height: 40px;
+		}
+		#title1 {
+			float: left;
+
+		}
+		#title1 a {
+			width: 40px;
+			display: block;
+			background: #201bbe;
+			color: #fff;
+			text-align: center;
+		}
+		#title2 {
+			float: right;
+		}
+		#imglist {
+			width: 900px;
+			height: 65px;
+			margin: 0px auto;
+			margin-top: 15px;
+		}
+		#imglist img {
+			width: 100px;
+		}
+		.imgitem {
+			float: left;
+			margin-right: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<div id="header-con">
+			<div class="dbg"><a href="javascript:;" onclick="showImgBox()">换肤</a></div>
+			<div><a href="javascript:;" id="blogin" onclick="showLogin()">登录</a></div>
+			<div><a href="javascript:;" id="blogin">注册</a></div>
+		</div>
+	</div>
+	<div id="loginbox">
+		<div class="login-item"><input type="text" name="" id="txtUserName" placeholder="请输入用户名"></div>
+		<div class="login-item"><input type="password" name="" id="txtPwd" placeholder="请输入密码"></div>
+		<div class="login-item"><a href="javascript:;" onclick="login()">登录</a></div>
+	</div>
+	<div id="dimgbox">
+		<div id="dimgtitle">
+			<div id="imgtitle-con">
+				<div id="title1"><a href="javascript:;">热门</a></div>
+				<div id="title2"><a href="javascript:;" onclick="hideImgBox()">收起</a></div>
+			</div>
+			<div id="imglist">
+				<div class="imgitem"><img src="img/1.jpg"></div>
+				<div class="imgitem"><img src="img/2.jpg"></div>
+				<div class="imgitem"><img src="img/3.jpg"></div>
+				<div class="imgitem"><img src="img/4.jpg"></div>
+				<div class="imgitem"><img src="img/5.jpg"></div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function showLogin() {
+			// body...
+			layer.open({
+				type:1,
+				title:"登录",
+				area:["395px","300px"],
+				content:$("#loginbox")
+			});
+		}
+		function login(){
+			var username = $.trim($("#txtUserName").val());
+			var pwd = $.trim($("#txtPwd").val());
+			if(username == "" || pwd == ""){
+				layer.alert("用户名或密码不能为空",{
+					title:"提示",
+					icon:5
+				})
+			}
+		}
+		function showImgBox(){
+			$("#dimgbox").slideDown();
+		}
+		function hideImgBox(){
+			$("#dimgbox").slideUp();
+		}
+		$(function(){
+			$(".imgitem img").click(function(){
+				var src = $(this).attr("src");
+				$("body").css("background-image","url("+src+")");
+				
+			});
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>飘雪</title>
+	<script type="text/javascript" src="./jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+		* {
+			padding: 0px;
+			margin: 0px;
+
+		}
+
+		body {
+			background-color: #000;
+		}
+		
+
+	</style>
+</head>
+<body>
+	
+
+	<script type="text/javascript">
+	var minSize = 5;
+	var maxSize = 50;
+	var newOn = 200;
+	var flakeColor = "#fff";
+	var flake = $("<div></div>").css({"position":"absolute","top":"-50px"}).html("*");
+
+	$(function(){
+		var documentHeight = $(document).height();
+		var documentWidth = $(document).width();
+		setInterval(function(){
+			var startPositionLeft = Math.random()*documentWidth;
+			var startOpacity = 0.7+Math.random()*0.3;
+			var endPostionTop = documentHeight;
+			var endPostionLeft = Math.random()*documentWidth;
+			var durationFall = 4000+Math.random()*3000;
+			var sizeFlake = minSize+maxSize*Math.random();
+			flake.clone().appendTo("body").css({
+				"left":startPositionLeft,
+				"opacity":startOpacity,
+				"font-size":sizeFlake,
+				"color":flakeColor
+			}).animate({
+				"top":endPostionTop,
+				"left":endPostionLeft,
+				"opacity":"0.5"
+			},durationFall,function(){
+				$(this).remove();
+			});
+		},newOn)
+	})
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>手风琴图片</title>
+	<script type="text/javascript" src="./jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+		* {
+			padding: 0px;
+			margin: 0px;
+
+		}
+		ul {
+			list-style-type: none;
+		}
+		a {
+			text-decoration: none;
+		}
+		
+		.pic {
+			width: 1400px;
+			height: 430px;
+			margin-top: 70px;
+			
+		}
+		.pic ul li {
+			float: left;
+			width: 150px;
+			height: 429px;
+		}
+		.pic1 {
+			background-image: url("img/1.jpg");
+		}
+		.pic2 {
+			background-image: url("img/2.jpg");
+		}
+		.pic3 {
+			background-image: url("img/3.jpg");
+		}
+		.pic ul .pic4 {
+			background-image: url("img/4.jpg");
+			width: 789px;
+
+		}
+
+		.txt {
+			background-color: #fff;
+			background: rgba(0,0,0,0.5);
+			height: 429px;
+			width: 150px;
+		}
+		.txt p {
+			float: left;
+			color: #fff;
+
+		}
+		.txt .p1 {
+			font-size: 12px;
+			width: 12px;
+			padding: 25px 25px 0px 20px;
+		}
+		.txt .p2 {
+			font-size: 14px;
+			width: 14px;
+			padding: 25px 25px 0px 20px;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="pic">
+		<ul>
+			<li class="pic1">
+				<a href="javascript:;">
+					<div class="txt">
+						<p class="p1">作者默默的墨墨</p>
+						<p class="p2">我的个人拉萨之旅</p>
+					</div>
+				</a>
+			</li>
+			<li class="pic2">
+				<a href="javascript:;">
+					<div class="txt">
+						<p class="p1">作者默默的墨墨</p>
+						<p class="p2">我的个人成都之旅</p>
+					</div>
+				</a>
+			</li>
+			<li class="pic3">
+				<a href="javascript:;">
+					<div class="txt">
+						<p class="p1">作者默默的墨墨</p>
+						<p class="p2">我的个人丽江之旅</p>
+					</div>
+				</a>
+			</li>
+			<li class="pic4">
+				<a href="javascript:;">
+					<div class="txt">
+						<p class="p1">作者默默的墨墨</p>
+						<p class="p2">我的个人北京之旅</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+
+	<script type="text/javascript">
+		$(function () {
+			// body...
+			$("li").mouseover(function(){
+				$(this).stop(true).animate({width:"789px"},1000).siblings().stop(true).animate({width:"150px"},1000)
+			})
+		})
+	</script>
+</body>
+</html>
