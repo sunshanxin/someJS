@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<style>
+		body,html{padding: 0;margin: 0;font-size: 14px;color:#000;}
+		table {border-collapse: collapse;width: 100%;table-layout: fixed;}
+		td,th {border: 1px solid #e1e1e1;padding: 0;height: 20px;line-height: 20px;text-align: center;}
+		.current{color:red;}
+		</style>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th><th>日</th></tr>
+			</thead>
+			<tbody>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+				<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+			</tbody>
+		</table>
+	</body>
+	
+	<script>
+	(function () {
+		var date3 = new Date();
+		calendar(date3.getFullYear(), date3.getMonth()+1)
+	})();
+	function calendar(year, month) {
+		var tds = document.querySelectorAll("td");
+		for (var i=0;i<42;i++) {
+			tds[i].innerHTML = null;
+			tds[i].classList.remove("current");
+		}
+	
+		var date1 = new Date(year,month,0);
+		
+		var date2 = new Date(year,month-1,1);
+		var d1 = date2.getDay();
+		var d2 = date1.getDate();
+		
+		
+		var d3 = d1-1;
+		
+		for (var i=0;i<d2;i++) {
+			tds[d3].innerHTML = i+1;
+			d3 = d3+1;
+		}
+		
+		var date3 = new Date();
+		
+		if(date3.getFullYear() == year && date3.getMonth() == month-1){
+					tds[date3.getDate()+d1-2].classList.add("current");
+		}
+		
+		
+	}
+	</script>
+</html>
